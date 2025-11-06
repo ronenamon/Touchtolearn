@@ -134,7 +134,7 @@ export default function App() {
       style={{ backgroundColor }}
     >
       <div
-        className="absolute inset-0 cursor-pointer"
+        className="absolute inset-0 cursor-pointer bg-[rgba(0,0,0,0)]"
         onTouchStart={handleTouch}
         onTouchMove={handleTouch}
         onMouseDown={handleTouch}
@@ -163,8 +163,11 @@ export default function App() {
         )}
       </div>
 
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/50 text-center px-4 pointer-events-none">
-        <p className="text-sm">גע במסך ללמידת צבעים ושמות</p>
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 text-white text-center px-4 pointer-events-none">
+        <h1 className="text-4xl drop-shadow-lg mb-2" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+          תלחץ על המסך
+        </h1>
+        <p className="text-sm text-white/70">גע במסך ללמידת צבעים ושמות</p>
       </div>
 
       <Button
