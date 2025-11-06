@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { TouchRipple } from './components/TouchRipple';
 import { AudioManager } from './components/AudioManager';
 import { Settings } from 'lucide-react';
