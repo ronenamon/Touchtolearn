@@ -47,7 +47,7 @@ export default function App() {
   const [backgroundColor, setBackgroundColor] =
     useState("#1a1a1a");
   const [gradientColors, setGradientColors] = useState<string[]>([
-    "#FF6B9D", "#C44569", "#FFA07A", "#FFD93D"
+    "#87CEEB", "#B0E0E6", "#ADD8E6", "#E0F6FF"
   ]);
   const [words, setWords] = useState<WordItem[]>(defaultWords);
   const [showSettings, setShowSettings] = useState(false);
@@ -176,9 +176,11 @@ export default function App() {
 
   return (
     <div
-      className="fixed inset-0 overflow-hidden select-none transition-all duration-700"
+      className="fixed inset-0 overflow-hidden select-none transition-all duration-1000"
       style={{ 
-        background: `linear-gradient(135deg, ${gradientColors[0]}40, ${gradientColors[1]}40, ${gradientColors[2]}40, ${gradientColors[3]}40)`,
+        background: currentWord 
+          ? `linear-gradient(135deg, ${gradientColors[0]}, ${gradientColors[1]}, ${gradientColors[2]}, ${gradientColors[3]})`
+          : 'linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%)',
       }}
     >
       {/* רקע עם צורות מרחפות */}
@@ -241,7 +243,7 @@ export default function App() {
           <>
             <motion.div
               animate={{ 
-                scale: [1, 1.05, 1],
+                scale: [1, 1.02, 1],
               }}
               transition={{
                 duration: 2,
@@ -250,28 +252,24 @@ export default function App() {
               }}
             >
               <div
-                className="text-5xl px-8 py-4 rounded-[30px] backdrop-blur-md border-4 border-white/50 inline-block mb-2"
+                className="text-3xl px-6 py-3 rounded-3xl backdrop-blur-sm border-3 border-white/40 inline-block mb-2"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255,107,157,0.9), rgba(196,69,105,0.9))',
-                  textShadow: `
-                    3px 3px 0px rgba(0,0,0,0.15),
-                    0 0 20px rgba(255,255,255,0.8)
-                  `,
-                  color: '#fff',
+                  background: 'rgba(255,255,255,0.85)',
+                  color: '#4A90E2',
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
                 }}
               >
                 ✨ תלחץ על המסך ✨
               </div>
             </motion.div>
             <motion.p 
-              className="text-xl px-6 py-2 rounded-2xl backdrop-blur-sm inline-block"
+              className="text-sm px-4 py-2 rounded-xl backdrop-blur-sm inline-block mt-2"
               style={{
-                background: 'rgba(255,255,255,0.9)',
-                color: '#FF6B9D',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+                background: 'rgba(255,255,255,0.7)',
+                color: '#5A9FD4',
               }}
               animate={{ 
-                opacity: [0.8, 1, 0.8],
+                opacity: [0.7, 1, 0.7],
               }}
               transition={{
                 duration: 2,
@@ -279,7 +277,7 @@ export default function App() {
                 ease: 'easeInOut',
               }}
             >
-              <Volume2 className="inline h-5 w-5 mr-2 mb-1" />
+              <Volume2 className="inline h-4 w-4 mr-1 mb-0.5" />
               גע במסך ללמידת צבעים ושמות
             </motion.p>
           </>
