@@ -5,8 +5,8 @@ on:
     branches: [ develop ]
 
 env:
-  AWS_REGION: us-east-1 # Change this to your AWS region
-  S3_BUCKET: your-bucket-name # Change this to your S3 bucket name
+  AWS_REGION: il-central-1 # Change this to your AWS region
+  S3_BUCKET: touch-to-learn-website-test-demo # Change this to your S3 bucket name
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
 
     
     - name: Build
-      run:  
+      run: npm run build
 
 
   preview:
@@ -79,9 +79,5 @@ jobs:
     - name: Deploy to S3
       run: |
         aws s3 sync dist/ s3://${{ env.S3_BUCKET }} --delete
+
         
-    - name: Invalidate CloudFront (if using CloudFront)
-      run: |
-        if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-        fi
