@@ -50,5 +50,5 @@ jobs:
     - name: Deploy to S3
       run: |
         echo "Using bucket ${{ env.S3_BUCKET }} and build var $MY_VAR"
-        aws s3 sync dist/ s3://${{ env.S3_BUCKET }} --delete
+        aws s3 sync build/ s3://${{ env.S3_BUCKET }} --delete
 
