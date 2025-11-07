@@ -17,6 +17,12 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Configure git identity for merge
+      if: github.ref == 'refs/heads/main'
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
     - name: Merge main into develop before build
       if: github.ref == 'refs/heads/main'
       run: |
