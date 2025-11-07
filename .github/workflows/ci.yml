@@ -35,7 +35,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
-    
+    env:
+      MY_VAR: ${{ needs.build.outputs.MY_VAR }}
     steps:
     - uses: actions/checkout@v4
     

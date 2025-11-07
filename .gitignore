@@ -8,6 +8,7 @@ build
 coverage
 
 # Production
+build
 dist
 dist-ssr
 *.local
@@ -31,6 +32,11 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.history
+
+# npm
+.npm-cache
+.npmrc
 
 # Environment files
 .env
@@ -38,3 +44,6 @@ pnpm-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.development
+.env.test
+.env.production
