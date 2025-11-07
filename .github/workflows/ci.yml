@@ -5,8 +5,8 @@ on:
     branches: [ develop ]
 
 env:
-  AWS_REGION: us-east-1 # Change this to your AWS region
-  S3_BUCKET: your-bucket-name # Change this to your S3 bucket name
+  AWS_REGION: il-central-1 
+  S3_BUCKET: touch-to-learn-website-test-demo
 
 jobs:
   build:
